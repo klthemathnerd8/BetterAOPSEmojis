@@ -80,13 +80,13 @@
             document.body.removeChild(textarea);
     
             const popup = document.createElement('div');
-            popup.textContent = 'Copied!';
+            popup.textContent = 'Successfully copied emoji.';
             popup.classList.add('popup');
             document.body.appendChild(popup);
     
             setTimeout(() => {
                 document.body.removeChild(popup);
-            }, 2000); // Remove popup after 2 seconds
+            }, 1500); // Remove popup after 2 seconds
         }
         readTextFile('emojis.txt', createImageContainers);
     </script>
