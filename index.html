@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text on Click</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container {
+            margin: 10px;
+        }
+
+        .copy-text {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        function readTextFile(file, callback) {
+            const rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4 && (rawFile.status === 200 || rawFile.status === 0)) {
+                    const allText = rawFile.responseText;
+                    callback(allText.split('\n'));
+                }
+            }
+            rawFile.send(null);
+        }
+        function createImageContainers(emojiList) {
+            let currentRow;
+
+            emojiList.forEach(function (emoji, index) {
+                if (emoji.trim() !== '') {
+                    if (index % 10 === 0) {
+                        currentRow = document.createElement('div');
+                        currentRow.classList.add('row');
+                        document.body.appendChild(currentRow);
+                    }
+
+                    const imageUrl = "http://artofproblemsolving.com/assets/images/smilies/" + emoji.trim();
+                    const container = document.createElement('div');
+                    container.classList.add('image-container');
+
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = "Image";
+                    img.onclick = function () {
+                        copyToClipboard('[img]' + imageUrl + '[/img]');
+                    };
+
+                    const copyText = document.createElement('div');
+                    copyText.classList.add('copy-text');
+                    copyText.textContent = 'Copy me!';
+
+                    container.appendChild(img);
+                    container.appendChild(copyText);
+                    currentRow.appendChild(container);
+                }
+            });
+        }
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Copied!');
+        }
+        readTextFile('emojis.txt', createImageContainers);
+    </script>
+
+</body>
+</html>
