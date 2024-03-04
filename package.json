@@ -4,7 +4,7 @@
   "description": "Copy Text on Click for Better Art of Problem Solving Emojis",
   "main": "index.html",
   "scripts": {
-    "start": "echo 'Open index.html in a browser'"
+    "start": "open index.html"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,11 @@
     "click"
   ],
   "author": "Your Name",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "start": "live-server"
+  }
 }
