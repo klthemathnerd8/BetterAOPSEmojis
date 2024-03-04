@@ -1,0 +1,22 @@
+{
+  "name": "BetterAOPSEmojis",
+  "version": "1.0.0",
+  "description": "Copy Text on Click for Better Art of Problem Solving Emojis",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Open index.html in a browser'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klthemathnerd8/BetterAOPSEmojis.git"
+  },
+  "keywords": [
+    "AOPS",
+    "emojis",
+    "copy",
+    "text",
+    "click"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
