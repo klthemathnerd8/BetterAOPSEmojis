@@ -78,7 +78,15 @@
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            alert('Copied!');
+    
+            const popup = document.createElement('div');
+            popup.textContent = 'Copied!';
+            popup.classList.add('popup');
+            document.body.appendChild(popup);
+    
+            setTimeout(() => {
+                document.body.removeChild(popup);
+            }, 2000); // Remove popup after 2 seconds
         }
         readTextFile('emojis.txt', createImageContainers);
     </script>
