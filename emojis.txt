@@ -34,7 +34,7 @@ w00t.gif
 plane.gif
 play_ball.gif
 police.gif
-red.gif
+read.gif
 showoff.gif
 sleep2.gif
 sleeping.gif
